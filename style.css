@@ -1,0 +1,115 @@
+/* Card fonts (bundled, open-licensed) */
+@font-face { font-family: "Card Inter"; src: url("assets/fonts/Inter-Regular.woff") format("woff"); font-weight: 400; }
+@font-face { font-family: "Card Inter"; src: url("assets/fonts/Inter-SemiBold.woff") format("woff"); font-weight: 600; }
+@font-face { font-family: "Card Poppins"; src: url("assets/fonts/Poppins-Regular.woff") format("woff"); font-weight: 400; }
+@font-face { font-family: "Card Pagella"; src: url("assets/fonts/texgyrepagella-regular.woff") format("woff"); font-weight: 400; }
+
+:root {
+  --magenta: #9b2263;
+  --magenta-dark: #7d1a4f;
+  --brown: #4a2b24;
+  --ink: #2b2f36;
+  --muted: #6b7280;
+  --line: #e5e1e4;
+  --bg: #f6f4f5;
+  --panel: #ffffff;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Card Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  color: var(--ink);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+.top {
+  background: linear-gradient(90deg, var(--brown), var(--magenta) 60%, #c43d8c);
+  color: #fff;
+  padding: 14px 24px;
+}
+.brand { display: flex; align-items: baseline; gap: 14px; max-width: 1280px; margin: 0 auto; }
+.brand-mark { font-weight: 600; letter-spacing: 0.32em; font-size: 20px; }
+.brand-sub { opacity: 0.85; font-size: 14px; letter-spacing: 0.04em; }
+
+.layout {
+  max-width: 1280px;
+  margin: 24px auto;
+  padding: 0 16px;
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 20px;
+}
+.panel h1 { margin: 0 0 4px; font-size: 18px; }
+.lead { margin: 0 0 16px; color: var(--muted); font-size: 13px; }
+
+label { display: block; margin-bottom: 14px; }
+label > span { display: block; font-size: 13px; font-weight: 600; margin-bottom: 6px; }
+label em { font-style: normal; font-weight: 400; color: var(--muted); }
+label small { display: block; margin-top: 5px; color: var(--muted); font-size: 12px; line-height: 1.4; }
+
+input, textarea {
+  width: 100%;
+  font: inherit;
+  font-size: 15px;
+  padding: 9px 11px;
+  border: 1px solid #d6d1d4;
+  border-radius: 8px;
+  background: #fff;
+  color: var(--ink);
+  resize: vertical;
+}
+input:focus, textarea:focus {
+  outline: none;
+  border-color: var(--magenta);
+  box-shadow: 0 0 0 3px rgba(155, 34, 99, 0.15);
+}
+
+.more { margin: 4px 0 16px; }
+.more summary { cursor: pointer; font-size: 13px; color: var(--magenta); margin-bottom: 10px; }
+
+.actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.btn {
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid #d6d1d4;
+  background: #fff;
+  color: var(--ink);
+  cursor: pointer;
+}
+.btn:hover { border-color: var(--magenta); }
+.btn.primary { background: var(--magenta); border-color: var(--magenta); color: #fff; flex: 1 1 100%; padding: 12px; }
+.btn.primary:hover { background: var(--magenta-dark); }
+.btn.ghost { border-color: transparent; color: var(--muted); }
+
+.preview { position: sticky; top: 16px; }
+.canvas-wrap {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.06), 0 12px 32px rgba(74, 43, 36, 0.12);
+  overflow: hidden;
+  line-height: 0;
+  opacity: 0;
+  transition: opacity 0.25s;
+}
+.ready .canvas-wrap { opacity: 1; }
+canvas { width: 100%; height: auto; display: block; }
+.note { color: var(--muted); font-size: 12px; margin: 10px 2px 0; }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .preview { position: static; order: -1; }
+}

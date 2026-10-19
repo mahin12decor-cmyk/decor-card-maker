@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DECOR Card Maker</title>
+  <meta name="description" content="Generate the front side of the DECOR Energy Solutions visiting card as a PNG." />
+  <link rel="icon" href="assets/favicon.png" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="top">
+    <div class="brand">
+      <span class="brand-mark">DECOR</span>
+      <span class="brand-sub">Visiting Card Maker</span>
+    </div>
+  </header>
+
+  <main class="layout">
+    <form id="cardForm" class="panel" autocomplete="off">
+      <h1>Card details</h1>
+      <p class="lead">Fill in the details. The preview updates as you type.</p>
+
+      <label>
+        <span>Name</span>
+        <input name="name" type="text" placeholder="Md. Mahinur Rashid" />
+        <small>Always printed in capital letters.</small>
+      </label>
+
+      <label>
+        <span>Education</span>
+        <input name="education" type="text" placeholder="B.Sc (EEE)" />
+        <small>Leave empty to hide this line.</small>
+      </label>
+
+      <label>
+        <span>Designation <em>(one line each, max 3)</em></span>
+        <textarea name="designation" rows="3" placeholder="Assistant Manager&#10;engineering &amp; business development"></textarea>
+        <small>Capital letters print large, small letters print as small capitals —
+          e.g. <b>Assistant Manager</b> gives the big “A” like the original card.</small>
+      </label>
+
+      <label>
+        <span>Phone</span>
+        <input name="phone" type="text" inputmode="tel" placeholder="01708-801850" />
+      </label>
+
+      <label>
+        <span>Email</span>
+        <input name="email" type="text" inputmode="email" placeholder="name.decor@gmail.com" />
+      </label>
+
+      <details class="more">
+        <summary>More options</summary>
+        <label>
+          <span>Company email (under designation)</span>
+          <input name="companyEmail" type="text" placeholder="info@decor-bd.com" />
+          <small>Leave empty to hide it.</small>
+        </label>
+      </details>
+
+      <div class="actions">
+        <button type="button" id="downloadBtn" class="btn primary">Download PNG</button>
+        <button type="button" id="sampleBtn" class="btn">Load sample</button>
+        <button type="button" id="clearBtn" class="btn ghost">Clear</button>
+      </div>
+    </form>
+
+    <section class="preview">
+      <div class="canvas-wrap">
+        <canvas id="card" width="1600" height="914" aria-label="Card preview"></canvas>
+      </div>
+      <p class="note">Output: 1600 × 914 px PNG — same size as the original card artwork.</p>
+    </section>
+  </main>
+
+  <script src="card.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
